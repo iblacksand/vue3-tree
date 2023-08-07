@@ -20,6 +20,22 @@
  
 A customizable vuejs tree viewer
 
+**Custom Version for ClinicalOmicsDB**
+
+### Changes
+
+1. Fix issue where nodes with no children don't get selected [from #115](https://github.com/wopehq/vue3-tree/issues/115)
+2. Makes checkbox and text on the same level
+
+### Building
+
+```bash
+npm install
+npm run build
+```
+
+Output in `dist` folder should replace `dist` folder from the `vue3-tree` folder in the `clinicalomicsdb_website/node_modules/vue3-tree` directory.
+
 #### Example
 [![Edit vue3-tree](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/boring-leaf-v7b2s?file=/src/App.vue)
 

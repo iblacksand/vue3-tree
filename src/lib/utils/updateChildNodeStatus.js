@@ -9,7 +9,7 @@ function updateChildNodeStatus(node, checkedStatus) {
         ...item,
         checked,
       };
-
+      item.checked = checked;
       if (item.nodes) {
         currentNode.nodes.forEach(childNode => updateChildNodeStatus(childNode, checked));
       } else {
