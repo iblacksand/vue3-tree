@@ -85,6 +85,10 @@ export default {
       type: Array,
       required: true,
     },
+    all_nodes: {
+      type: Array,
+      required: false,
+    },
     props: {
       type: Object,
       default() {
@@ -142,9 +146,9 @@ export default {
   emits: ['nodeClick', 'nodeExpanded', 'checkboxToggle', 'update:nodes'],
   setup(props, { emit }) {
     onMounted(() => emit('update:nodes', initNodes(props.nodes)));
-
+    props.all_nodes = props.nodes;
     const filteredData = computed(() => {
-      let newData = props.nodes;
+      let newData = props.all_nodes;
 
       if (props.searchText) {
         newData = searchNodes(props.nodes, props.searchText);
@@ -153,7 +157,7 @@ export default {
           newData.forEach(expandNodeWithChilds);
         }
       }
-
+      props.nodes = newData;
       return updateNodes(newData);
     });
 
